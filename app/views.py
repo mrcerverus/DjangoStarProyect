@@ -56,7 +56,7 @@ def editar_usuario(request):
     else:
         form = UsuarioEditForm(instance=request.user)
 
-    return render(request, 'perfil.html', {'form': form})
+    return render(request, 'registration/editar_usuario.html', {'form': form})
 
 #Actualizar Contrasena
 @login_required

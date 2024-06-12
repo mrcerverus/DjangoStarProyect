@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block "header" %}
+{% endblock "header" %}
+
+{% block 'content' %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="bg-light rounded p-3">
+            <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                <div class="row g-5 align-items-center">
+
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="mb-4">
+                            <h4>Estas Registrado Con Nosotros?</h4>
+                            <a href="{% url "register" %}" class="btn btn-primary btn-sm btn-primary border-start">Registrate</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="mb-4">
+                            <h1 class="mb-3">Iniciar Sesión</h1>
+                            {% load crispy_forms_tags %}
+                            <form id="login-form" action="" method="post">
+                                {% csrf_token %}
+                                    <div class="card-body">
+                                        {{ form | crispy }}
+                                    </div>
+                                <button class="btn btn-primary btn-sm btn-primary float-end" type="submit">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock 'content' %}

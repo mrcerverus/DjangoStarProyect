@@ -34,13 +34,14 @@ class UsuarioEditForm(UserChangeForm):
     class Meta:
         model = Usuario
         fields = ['username', 'first_name', 'last_name', 'direccion', 'telefono', 'email']
-        exclude = ['password']
 
     def __init__(self, *args, **kwargs):
         super(UsuarioEditForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Guardar cambios'))
+        if 'password' in self.fields:
+            del self.fields['password']
 
 #Formulario cambio de password
 class CustomPasswordChangeForm(PasswordChangeForm):

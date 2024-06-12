@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block "header" %}
+{% endblock "header" %}
+
+{% block 'content' %}
+
+<section class="d-flex justify-content-center ">
+    <div class="intro-text left-0 bg-faded p-5 rounded">
+        <div class="card-header">
+            <h4>Cambiar Contraseña</h4>
+        </div>
+    <br>
+
+    <div class="card-body ">
+        {% load crispy_forms_tags %}
+        <form id="login-form" action="" method="post">
+            {% csrf_token %}
+                <div class="card-body">
+                    {{ form | crispy }}
+                    <button class="btn btn-primary btn-sm btn-primary float-end" type="submit">Actualizar</button>
+                </div>
+        </form>
+    </div>
+</section>
+
+{% endblock 'content' %}

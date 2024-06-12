@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block "header" %}
+{% endblock "header" %}
+
+{% block 'content' %}
+{% load crispy_forms_tags %}
+
+<section class="d-flex justify-content-center text-bg-primary">
+    <div>
+        <div class="intro-text left-0 bg-faded p-5 rounded">
+            <div class="card-header">
+                <h4>Contacta con Nosotros</h4>
+            </div>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock 'content' %}
